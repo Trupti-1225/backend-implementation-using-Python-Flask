@@ -1,203 +1,106 @@
-# 📘 CertifyMe — Full Stack Intern Assessment
+Admin Portal – Opportunity Management System
 
----
+📌 Project Overview
 
-## 🚀 Getting Started
+This is a full-stack admin portal developed using **Flask (Python backend)** and **HTML, CSS, JavaScript (frontend)**.
+It allows administrators to manage opportunities with secure authentication and database integration.
 
-1. **Clone the provided repository**
-   ```bash
-   git clone https://github.com/Neerajvs32/Test1.git
+🚀 Version Information
+
+* **Project Version:** 1.0
+* **Python Version:** 3.x
+* **Flask Version:** 2.x
+* **Database:** SQLite3
+* **Frontend:** HTML5, CSS3, JavaScript (ES6)
+
+ 🛠️ Tech Stack
+
+* **Backend:** Flask (Python)
+* **Frontend:** HTML, CSS, JavaScript
+* **Database:** SQLite
+* **API:** REST APIs
+
+🔐 Features
+
+Authentication
+
+* Admin Signup & Login
+* Email validation & password rules
+* Remember Me session support
+* Forgot Password with token-based reset (1-hour expiry)
+
+ Dashboard
+
+* Admin dashboard with navigation
+* Personalized admin profile
+
+ Opportunity Management
+
+* Create opportunities
+* View only your own opportunities
+* Edit opportunities
+* Delete opportunities
+* Fully database-driven (no hardcoded data)
+
+📂 Project Structure
+
+Backend/
+
+* app.py
+
+Frontend/
+
+* admin.html
+* admin.css
+* admin.js
+* reset.html
+
+ ⚙️ Setup Instructions
+
+1. Clone the repository
+2. Navigate to Backend folder
+3. Create virtual environment
+
    ```
+   python -m venv venv
+   ```
+4. Activate virtual environment
 
-2. **Create your own GitHub repository**
-   - Push the cloned project to your own GitHub account.
-   - Share your repository link after completing the task.
+   ```
+   venv\Scripts\activate
+   ```
+5. Install dependencies
 
-3. **Development Requirement**
-   - Both Frontend and Backend must run together.
-   - The UI must remain exactly the same.
-   - ❌ Do NOT modify frontend design or components.
-   - ✅ Build the backend required for the existing UI functionality.
+   ```
+   pip install flask flask-cors
+   ```
+6. Run the server
 
----
+   ```
+   python app.py
+   ```
+7. Open `admin.html` in browser
 
-## 🏢 Project Overview
+ 🔗 API Endpoints
 
-This project is part of the **CertifyMe Full Stack Intern Assessment**. The repository already contains a complete Admin UI. Your responsibility is to **build the backend and connect it with the existing frontend**.
+* POST /signup
+* POST /login
+* POST /logout
+* GET /check-session
+* POST /forgot-password
+* POST /reset-password
+* POST /create-opportunity
+* GET /get-opportunities
+* PUT /update-opportunity/{id}
+* DELETE /delete-opportunity/{id}
 
-### Objectives
-- Build backend APIs using Flask
-- Connect frontend with backend
-- Store and retrieve data from database
-- Make the application fully functional
+📌 Key Highlights
 
-### 🔗 Original Repository
-[https://github.com/Neerajvs32/Test1](https://github.com/Neerajvs32/Test1)
+* User-specific data isolation
+* Secure session management
+* Token-based password reset
+* Clean UI with backend integration
 
----
+ 👩‍💻 Author
 
-## ⚙️ Tech Stack
-
-| Layer | Technology |
-|---|---|
-| Backend | Python |
-| Framework | Flask |
-| Database | SQLite / MySQL / PostgreSQL |
-| Frontend | Pre-built Admin UI |
-
----
-
-## 🧩 Features & User Stories
-
----
-
-### ✅ Task 1 — Authentication *(Day 1)*
-
----
-
-#### US-1.1 — Admin Sign Up
-
-**Required Fields**
-- Full Name
-- Email
-- Password
-- Confirm Password
-
-**Validations**
-- All fields mandatory
-- Email must be valid
-- Password minimum 8 characters
-- Passwords must match
-- Email must be unique
-
-**Expected Result**
-- Save admin account
-- Redirect to Login page
-
----
-
-#### US-1.2 — Admin Login
-
-**Fields**
-- Email
-- Password
-- Remember Me checkbox
-
-**Rules**
-- Show generic error on failure:
-  ```
-  Invalid email or password
-  ```
-
-**Expected Result**
-- Redirect to dashboard
-- Load opportunities created by the admin
-
-**Session Handling**
-
-| Condition | Behaviour |
-|---|---|
-| Remember Me checked | Long-lived session |
-| Remember Me unchecked | Session ends when browser closes |
-
----
-
-#### US-1.3 — Forgot Password
-
-**Requirements**
-- Admin enters their email
-- Always show the same success message (regardless of whether email exists)
-
-**Behaviour**
-- Generate reset link internally
-- No email sending required
-
-**Security**
-- Reset link expires after **1 hour**
-- Expired link shows an error
-
----
-
-### ✅ Task 2 — Opportunity Management *(Day 2)*
-
-> All opportunities must be stored in the database, linked to the logged-in admin, and must never use hardcoded data.
-
----
-
-#### US-2.1 — View All Opportunities
-
-**Each opportunity card must display:**
-- Opportunity Name
-- Category
-- Duration
-- Start Date
-- Description
-
-**Rules**
-- Show only the logged-in admin's opportunities
-- Remove all demo / hardcoded cards
-- Show an empty state if no opportunities exist
-
----
-
-#### US-2.2 — Add New Opportunity
-
-**Required Fields**
-- Opportunity Name
-- Duration
-- Start Date
-- Description
-- Skills to Gain *(comma separated)*
-- Category
-- Future Opportunities
-
-**Optional Field**
-- Maximum Applicants
-
-**Category Options**
-- Technology
-- Business
-- Design
-- Marketing
-- Data Science
-- Other
-
-**Expected Result**
-- Validate all required fields
-- Save opportunity to database
-- Link opportunity to logged-in admin
-- Display immediately **without page refresh**
-
----
-
-#### US-2.3 — Opportunities Persist After Login
-
-- Opportunities must load after logout / login cycles
-- Stored only in the database — **no local storage usage**
-- Admins cannot access other admins' data
-
----
-
-#### US-2.4 — View Opportunity Details
-
-- Open a details modal
-- Show all saved fields
-- Close button available
-
----
-
-#### US-2.5 — Edit Opportunity
-
-- Edit button opens a pre-filled form
-- Apply the same validations as during creation
-- Update only the selected opportunity
-- Reflect changes instantly **without page refresh**
-
----
-
-#### US-2.6 — Delete Opportunity
-
-- Show a confirmation dialog before deletion
-- Delete permanently from the database
-- Remove from UI immediately **without page refresh**
-- Only the creator admin can delete their own opportunity
+Trupti G M
