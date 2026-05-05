@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reset Password</title>
+</head>
+<body>
+
+<h2>Reset Password</h2>
+
+<input type="password" id="newPassword" placeholder="New Password">
+<button onclick="resetPassword()">Reset</button>
+
+<script>
+function resetPassword() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
+    const password = document.getElementById('newPassword').value;
+
+    fetch('http://127.0.0.1:5000/reset-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            token: token,
+            password: password
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert(data.message);
+    });
+}
+</script>
+
+</body>
+</html>
